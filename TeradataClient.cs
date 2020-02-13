@@ -1,6 +1,6 @@
 ﻿#region Licenses
 /*MIT License
-Copyright(c) 2018
+Copyright(c) 2020
 Robert Garrison
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 #endregion
 #region Using Statements
+using ADONetHelper.Core;
 using System.Data;
 using Teradata.Client.Provider;
 #endregion
@@ -31,7 +32,7 @@ namespace ADONetHelper.TeraData
     /// <summary>
     /// A specialized instance of <see cref="DbClient"/> to target Terdata system
     /// </summary>
-    /// <seealso cref="ADONetHelper.DbClient" />
+    /// <seealso cref="DbClient" />
     public class TeradataClient : DbClient
     {
         #region Fields/Properties        
@@ -46,7 +47,7 @@ namespace ADONetHelper.TeraData
             get
             {
                 //Return this back to the caller
-                return (TdConnection)this.ExecuteSQL.Connection;
+                return (TdConnection)ExecuteSQL.Connection;
             }
         }
         /// <summary>
@@ -60,7 +61,7 @@ namespace ADONetHelper.TeraData
             get
             {
                 //Return this back to the caller
-                return this.Connection.QueryBand;
+                return Connection.QueryBand;
             }
         }
         #endregion
@@ -95,6 +96,14 @@ namespace ADONetHelper.TeraData
         {
         }
         /// <summary>
+        /// Constructor to query a database using an existing <see cref="TdConnection"/> to initialize the <paramref name="connection"/>
+        /// </summary>
+        /// <param name="commandType">Represents how a command should be interpreted by the data provider</param>
+        /// <param name="connection">An instance of <see cref="TdConnection"/> to use to query a database </param>
+        public TeradataClient(TdConnection connection, CommandType commandType) : base(connection, commandType)
+        {
+        }
+        /// <summary>
         /// Insantiates a new instance of <see cref="TeradataClient"/> using the passed in <paramref name="connectionString"/> and <paramref name="factory"/>
         /// </summary>
         /// <param name="connectionString">Connection string to use to query a database</param>
@@ -111,7 +120,7 @@ namespace ADONetHelper.TeraData
         public void ChangeQueryBand(TdQueryBand band)
         {
             //Change the query band
-            this.Connection.ChangeQueryBand(band);
+            Connection.ChangeQueryBand(band);
         }
         #endregion
     }

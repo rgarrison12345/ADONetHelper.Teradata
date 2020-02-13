@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net452;netstandard2.0;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;</TargetFrameworks>
     <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/rgarrison12345/ADONetHelper.Teradata</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rgarrison12345/ADONetHelper.Teradata.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.5.0</Version>
+    <Version>1.5.1</Version>
     <PackageTags>Teradata Teradata.Client.Provider ORM ADO.NET ADO SQL .NET Database RDBMS Generic DAL ANSI</PackageTags>
-    <Copyright>Copyright © Robert Garrison 2019</Copyright>
+    <Copyright>Copyright © Robert Garrison 2020</Copyright>
     <Authors>Robert Garrison</Authors>
     <Company>Robert Garrison</Company>
     <Product>ADONetHelper.Teradata</Product>
@@ -18,7 +18,7 @@
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <Description>Extends ADONetHelper library for Teradata</Description>
-    <PackageReleaseNotes>Updating to Teradata.Client.Provider 16.20.8 And ADONetHelper 3.4.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Updating to Teradata.Client.Provider 16.20.9 And ADONetHelper 4.0.8.  Removing .net 4.5.2 build</PackageReleaseNotes>
     <AssemblyName>ADONetHelper.Teradata</AssemblyName>
     <RootNamespace>ADONetHelper.Teradata</RootNamespace>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ADONetHelper.Teradata.xml</DocumentationFile>
@@ -30,8 +30,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
-    <PackageReference Include="Teradata.Client.Provider" Version="16.20.8" />
-    <PackageReference Include="ADONetHelper" version="3.4.0" />
+    <PackageReference Include="Teradata.Client.Provider" Version="16.20.9" />
+    <PackageReference Include="ADONetHelper" version="4.0.8" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <DebugSymbols>true</DebugSymbols>
